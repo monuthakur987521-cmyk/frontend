@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #e3e6e6;
+    color: #0f1111;
+}
+
+/* Navbar */
+.navbar {
+    height: 65px;
+    background-color: #131921;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 8px;
+    padding: 5px 12px;
+}
+
+/* Logo */
+.nav-logo {
+    height: 50px;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 100%;
+    height: 40px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+}
+
+.border {
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.border:hover {
+    border-color: white;
+}
+
+/* Delivery Address */
+.nav-address {
+    padding: 7px;
+    flex-shrink: 0;
+}
+
+.deliver {
+    font-size: 12px;
+    color: #cccccc;
+    margin-left: 17px;
+}
+
+.add-icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.location-icon {
+    font-size: 16px;
+}
+
+.india {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Search Bar */
+.nav-search {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    flex: 1;
+    max-width: 700px;
+    min-width: 100px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 3px solid transparent;
+}
+
+.nav-search:focus-within {
+    border-color: #febd69;
+}
+
+.nav-search select {
+    height: 100%;
+    width: 55px;
+    border: none;
+    background-color: #e6e6e6;
+    color: #333;
+    padding: 0 5px;
+    font-size: 12px;
+    outline: none;
+}
+
+.nav-search input {
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    font-size: 15px;
+}
+
+.nav-search input::placeholder {
+    color: #777;
+}
+
+.search-icon {
+    height: 100%;
+    width: 45px;
+    background-color: #febd69;
+    color: #131921;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.search-icon:hover {
+    background-color: #f3a847;
+}
+
+.magnifying-glasss {
+    font-size: 20px;
+}
+
+/* Flag */
+.flag {
+    width: 28px;
+    height: 20px;
+    flex-shrink: 0;
+    background-image: url("https://flagcdn.com/w40/in.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Language Selector */
+.lan-select {
+    background-color: #131921;
+    color: white;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.lan-select option {
+    background-color: white;
+    color: black;
+}
+
+/* Sign In */
+.sign-in {
+    padding: 5px;
+    flex-shrink: 0;
+}
+
+.sign-in p {
+    font-size: 12px;
+}
+
+.requirments {
+    width: 115px;
+    max-width: 100%;
+    border: none;
+    background-color: #131921;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
+.requirments option {
+    background-color: white;
+    color: black;
+}
+
+/* Returns and Orders */
+.return {
+    padding: 6px;
+    flex-shrink: 0;
+}
+
+.return a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.return p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Cart */
+.cart-logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 5px;
+    flex-shrink: 0;
+}
+
+.cart-logo i {
+    font-size: 28px;
+}
+
+.cart {
+    font-size: 14px;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+/* Second Navigation Panel */
+.pannel {
+    min-height: 40px;
+    background-color: #232f3e;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 20px;
+}
+
+.pannel-all {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.pannel-all i {
+    font-size: 18px;
+}
+
+.pannel-ops {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex: 1;
+}
+
+.pannel-ops p {
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.pannel-ops p:hover {
+    text-decoration: underline;
+}
+
+.pannel-deals {
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Hero Banner */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background-color: #d9e5e8;
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) 50%,
+            #e3e6e6 100%
+        ),
+        url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Optional additional hero slides */
+.background-image,
+.image2,
+.image3,
+.image4 {
+    display: none;
+}
+
+/* Product Section */
+.section {
+    position: relative;
+    margin: -70px 20px 30px;
+    z-index: 1;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    min-height: 320px;
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    align-content: start;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.gaming {
+    grid-column: 1 / -1;
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0f1111;
+}
+
+/* Gaming Accessory Images */
+.card img {
+    display: block;
+    width: 100%;
+    height: 130px;
+    object-fit: contain;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card img:hover {
+    transform: scale(1.04);
+}
+
+.see-more {
+    background-color: white;
+    padding: 0 20px 20px;
+    color: #007185;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.see-more:hover {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .navbar {
+        gap: 5px;
+        padding: 5px;
+    }
+
+    .nav-logo {
+        width: 75px;
+    }
+
+    .nav-address {
+        display: none;
+    }
+
+    .return {
+        display: none;
+    }
+
+    .pannel {
+        gap: 12px;
+        padding: 8px 12px;
+    }
+
+    .pannel-ops {
+        gap: 12px;
+    }
+
+    .pannel-deals {
+        display: none;
+    }
+
+    .hero {
+        height: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        height: auto;
+        min-height: 60px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 8px;
+    }
+
+    .nav-logo {
+        width: 85px;
+    }
+
+    .flag,
+    .lan-select {
+        display: none;
+    }
+
+    .sign-in {
+        display: none;
+    }
+
+    .nav-search {
+        order: 10;
+        flex-basis: 100%;
+        max-width: none;
+    }
+
+    .cart-logo i {
+        font-size: 23px;
+    }
+
+    .pannel {
+        overflow-x: auto;
+        gap: 16px;
+    }
+
+    .pannel-ops {
+        gap: 16px;
+    }
+
+    .pannel-ops p {
+        font-size: 12px;
+    }
+
+    .hero {
+        height: 200px;
+    }
+
+    .section {
+        margin: -35px 10px 20px;
+    }
+
+    .card {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .gaming {
+        font-size: 18px;
+    }
+
+    .card img {
+        height: 110px;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+   <div class="navbar">
+
+        <div class="nav-logo border">
+            <div class="logo"></div>
+    </div>
+    <div class="nav-address border">
+        <p class="deliver">Deliver to</p>
+        <div class="add-icon">
+            <i class="fa-solid fa-location-dot location-icon"></i>
+            <p class="india">India</p>
+         </div>
+         </div>
+    <div class="nav-search">
+        <select>
+            <option>
+                        all
+                </option>
+                </select>
+            <input placeholder="searchamazon">
+            <div class="search-icon">
+                 <i class="fa-solid fa-magnifying-glass magnifying-glasss "></i>
+
+            </div>
+    </div>
+    <div class="flag border"></div>
+
+
+    <select class="lan-select border languages">
+        <option value="en">EN</option>
+        <option value="hi">HI</option>
+        <option value="pa">PA</option>
+        <option value="fr">FR</option>
+    </select>
+    <div class="sign-in">
+        <p id="hello border">Hello,sign in </p>
+        <select class="requirments">
+            <option value="orders">orders</option>
+            <option value="home & sign in">home & sign in</option>
+            <option value="return oreders">return oreders</option>
+            <option value="prime membership">prime membership</option>
+        </select>
+    </div>
+    <div class="return">
+       <a href="#">Returns</a>
+        <p>&Orders</p>
+        
+    </div>
+    <div class="cart-logo">
+        <i class="fa-solid fa-cart-shopping "></i>
+        <p class="cart">cart</p>
+    </div>
+    </div>
+<div class="pannel">
+        
+    <div class="pannel-all">
+        <i class="fa-solid fa-bars"></i>
+            All
+    </div>
+    <div class="pannel-ops">
+        <p>today's deals</p>
+        <p>sell</p>
+        <p>gift cards</p>
+        <p>customer service</p>
+    </div>
+    <div class="pannel-deals">
+        shop deals in electronics
+    </div>
+</div>
+    <br>
+</header>
+<!--hero section-->
+<div class="hero">
+    <div class="background-image image1st"></div>
+    <div class="image2"></div>
+    <div class="image3"></div>
+    <div class="image4"></div>
+></div>
+</div>
+<div class="section">
+    <div class="card">
+        <h3 class="gaming">gaming accessories</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqNAiBC_r_xmiiF0UNr58U1n7ABl0oA-YtOUsvznLkIQ&s=10 image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy-sVf9GzHbCkaodNYyy6OWfOOywY-BTArqpjOwdsSpQ&s=10 image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDSi9CV23YoyFsm_w62982qqlUw6m7sBNqNAm_CZxg3A&s=10 image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2QKM4SHEAnovdAFGBio-pc2zJeNnAwsGxNZvcfcG1uw&s=10 image">
+
+
+    </div>
+    <p class="see-more">see more</p>
+</div>
+
+
+
+
+
+
+   
+
+  
+ 
+
+    
+</body>
+</html>
